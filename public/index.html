@@ -3,9 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--移动端适配-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!--这meta的作用就是删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。-->
+    <!--注意： 若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta property="og:title" content="dodo" />
+    <meta property="og:description" content="dodo" />
+    <meta property="og:image" content="<%= BASE_URL %>logo.png" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title><%= VUE_APP_NAME %></title>
   </head>
   <body>
     <noscript>
