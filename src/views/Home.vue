@@ -5,14 +5,31 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts">
+  import { Component, Prop, Vue } from 'vue-property-decorator'
+  import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  @Component({
+    components: {
+      HelloWorld
+    }
+  })
+  export default class Home extends Vue {
+    @Prop() private msg!: string
+
+    beforeRouteEnter (to, from, next) {
+      console.log('beforeRouteEnter')
+      next()
+    }
+
+    beforeRouteUpdate (to, from, next) {
+      console.log('beforeRouteUpdate')
+      next()
+    }
+
+    beforeRouteLeave (to, from, next) {
+      console.log('beforeRouteLeave')
+      next()
+    }
   }
-}
 </script>
