@@ -5,6 +5,7 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
   productionSourceMap: false,
   devServer: {
+    port: 8888
     // proxy: 'http://127.0.0.1：8001'
   },
   configureWebpack: config => {
