@@ -33,7 +33,7 @@ module.exports = {
         // 这里的选项会传递给 postcss-loader
       },
       scss: {
-        prependData: '@import "~@/assets/variables.scss";'
+        prependData: '@import "~@/assets/style/variables.scss";'
       }
     }
   },
