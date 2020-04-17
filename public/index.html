@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--移动端适配-->
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <!--这meta的作用就是删除默认的苹果工具栏和菜单栏-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!--默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。-->
-    <!--注意： 若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。-->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta property="og:title" content="dodo" />
-    <meta property="og:description" content="dodo" />
-    <meta property="og:image" content="<%= BASE_URL %>logo.png" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= VUE_APP_NAME %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--移动端适配-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <!--这meta的作用就是删除默认的苹果工具栏和菜单栏-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。-->
+  <!--注意： 若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。-->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta property="og:title" content="dodo"/>
+  <meta property="og:description" content="dodo"/>
+  <meta property="og:image" content="<%= BASE_URL %>logo.png"/>
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163779389-1"></script>
+  <script>
+    var ID = 'UA-163779389-1'
+    window.dataLayer = window.dataLayer || []
+
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+    // 设置固定参数值
+    gtag('set', {'uid': 'test'})
+    // 设置用户ID
+    gtag('config', ID, {
+      'user_id': 'USER_ID'
+    })
+    // 自定义维度
+    gtag('config', ID, {
+      'custom_map': {'dimension2': 'page'}
+    });
+    // Sends an event that passes 'age' as a parameter.
+
+    // 自定义指标
+    gtag('config', ID, {
+      'custom_map': {'metric5': 'avg_page_load_time'}
+    });
+    // Sends an event that passes 'avg_page_load_time' as a parameter.
+    // gtag('event', 'load_time_metric', {'avg_page_load_time': 1});
+
+    // 同时更新维度和指标
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      'custom_map': {
+        'dimension2': 'age',
+        'metric5': 'avg_page_load_time'
+      }
+    });
+    // gtag('event', 'foo', {'age': 55, 'avg_page_load_time': 1});
+
+    gtag('config', ID)
+  </script>
+
+  <title><%= VUE_APP_NAME %></title>
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+    Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>
