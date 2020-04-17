@@ -19,7 +19,7 @@ const whiteList = ['/']
 service.interceptors.request.use(async config => {
   // 发送请求之前
   const url = config.url || ''
-  let inWhite = whiteList.filter(item => url.indexOf(item) > -1)
+  const inWhite = whiteList.filter(item => url.indexOf(item) > -1)
   if (!(inWhite && inWhite.length > 0)) {
     const accessToken = await localforage.getItem('accessToken')
     if (accessToken) {

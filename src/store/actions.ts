@@ -18,14 +18,14 @@ export const updateState = async ({ commit }, payload) => {
 
 // 添加日志
 export const createJournal = async ({ commit }, payload) => {
-  let journal = payload.journal
+  const journal = payload.journal
   let params = ''
   if (journal) {
-    for (let key in journal) {
+    for (const key in journal) {
       params = params.concat(`&${key}=${journal[key]}`)
     }
   }
-  let url = `${apis.JOURNAL_API_URL}${params}`
+  const url = `${apis.JOURNAL_API_URL}${params}`
   return http.get(url, null, null)
 }
 

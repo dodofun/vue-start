@@ -7,7 +7,7 @@ const whiteList = ['/'] // 不需要权限验证拦截的白名单路由
 
 router.beforeEach(async (to, from, next) => {
   console.log('beforeEach to', to)
-  analyticsEvent('view_page', {page: to.fullPath})
+  analyticsEvent('view_page', { page: to.fullPath })
   NProgress.start() // 开启Progress
   // TODO 业务处理
   next()
