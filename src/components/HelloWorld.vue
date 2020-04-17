@@ -1,20 +1,34 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>msg: {{ msg }}</h1>
+    <h1>foo: {{ foo }}</h1>
+    <h1>count: {{ count }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <span @click='addCount'>vue-cli documentation</span>.
     </p>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator'
+  import { Component, Emit, InjectReactive, Prop, Vue } from 'vue-property-decorator'
 
   @Component
   export default class HelloWorld extends Vue {
-    @Prop() private msg!: string;
+    @Prop() private msg!: string
+    @Prop() private count!: number
+
+    @InjectReactive() readonly foo!: string
+
+    @Emit('add')
+    addCount () {
+      return this.count + 1
+    }
+
+    mounted () {
+      console.log('foo', this.foo)
+    }
 
     beforeRouteEnter (to, from, next) {
       console.log('beforeRouteEnter')
