@@ -33,24 +33,24 @@
     })
     // 自定义维度
     gtag('config', ID, {
-      'custom_map': {'dimension2': 'page'}
+      'custom_map': {'dimension1': 'page'}
     });
     // Sends an event that passes 'age' as a parameter.
 
     // 自定义指标
     gtag('config', ID, {
-      'custom_map': {'metric5': 'avg_page_load_time'}
+      'custom_map': {'metric1': 'avg_page_load_time'}
     });
     // Sends an event that passes 'avg_page_load_time' as a parameter.
     // gtag('event', 'load_time_metric', {'avg_page_load_time': 1});
 
     // 同时更新维度和指标
-    gtag('config', 'GA_MEASUREMENT_ID', {
-      'custom_map': {
-        'dimension2': 'age',
-        'metric5': 'avg_page_load_time'
-      }
-    });
+    // gtag('config', 'GA_MEASUREMENT_ID', {
+    //   'custom_map': {
+    //     'dimension1': 'age',
+    //     'metric1': 'avg_page_load_time'
+    //   }
+    // });
     // gtag('event', 'foo', {'age': 55, 'avg_page_load_time': 1});
 
     gtag('config', ID)
