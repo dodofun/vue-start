@@ -3,16 +3,18 @@
     <router-link to='/about'>
       <img ref='img' alt="Vue logo" src="../assets/logo.png">
     </router-link>
+    <input v-focus/>
     <div @click='changeFoo'>Change foo</div>
     <HelloWorld msg="Welcome to Your Vue.js App" :count='count' @add='addCount'/>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Emit, Prop, PropSync, ProvideReactive, Vue, Watch } from 'vue-property-decorator'
+  import '@/directives/focus'
+  import {Component, Prop, PropSync, ProvideReactive, Vue, Watch} from 'vue-property-decorator'
   import HelloWorld from '@/components/HelloWorld.vue'
-  import { Log } from '@/utils/decorators'
-  import { mapActions, mapGetters } from 'vuex'
+  import {Log} from '@/utils/decorators'
+  import {mapActions, mapGetters} from 'vuex'
 
   @Component({
     components: {
@@ -45,7 +47,7 @@
 
     @Log
     test (obj) {
-      console.log('test methods')
+      console.log('test methods', obj)
     }
 
     changeFoo () {
